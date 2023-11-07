@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% for satObj in sat %}
+    <h1>Name: {{ satObj.name }}</h1>
+    <h2>Course: {{ satObj.course }}</h2>
+    <h3>Marks: {{ satObj.marks }}</h3>
+    {% if satObj.status %}
+        <p>Exam successfully passed</p>
+    {% else %}
+        <p>Failed</p>
+    {% endif %}
+    {% endfor %}
+    {% for student in sat %}
+    <li>Name: {{ student.name|upper }}, Course: {{student.course}}, Marks: {{ student.marks }}, Status: {{student.status }}</li>
+    {% endfor %}
+    <ul>
+        {% for student in sat %}
+            <li>Name: {{ student.name }}, Course: {{ student.course|default:"N/A" }}, Marks: {{ student.marks }}, Status: {{ student.status }}</li>
+        {% endfor %}
+    </ul>
+        
+</body>
+</html>
