@@ -1,0 +1,97 @@
+#myImage {
+    max-width:fit-content;  /* Ensure the image doesn't exceed the column width */
+    height: auto;     /* Maintain the image's aspect ratio */
+}
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+.row{
+    background: rgb(245, 245, 247);
+    border-radius: 30px;
+    box-shadow: 12px 12px 22px;
+    
+}
+.img-fluid{
+    width: 600px;
+}
+.login img{
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+.login h1{
+    font-size: 4rem;
+    font-weight: 700;
+    font-family: Macondo-Regular;
+}
+.inp{
+    height: 50px;
+    width:70%;
+
+    border:none;
+    outline:none;
+    border-radius: 60px;
+    box-shadow: -1px 1px 30px -11px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px 1px 30px -11px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 1px 30px -11px rgba(0,0,0,0.75);
+}
+.btn1{
+    height: 50px;
+    width:70%;
+
+    border:none;
+    outline:none;
+    border-radius: 60px;
+    font-weight: 600;
+    background: rgb(177, 45, 45);
+    
+    color: white;
+}
+.btn2{
+    font-weight: 600;
+    color:  rgb(177, 45, 45);
+    padding-top: 50px;
+}
+.btn2:hover{
+    transition: 0.5s;
+    color:  rgb(230, 69, 69);
+}
+.btn1:hover{
+    background:brown ;
+    transition: 0.5s;
+}
+.fa-facebook{
+    font-size: 2.5rem;
+    color:blue;
+}
+.fa-google{
+    font-size: 2.5rem;
+    color:rgb(199, 21, 21);
+}
+
+
+.fa-google:hover {
+    color: red; /* Change the color to red on hover */
+    transition: 0.5s;
+  }
+.fa-facebook:hover {
+    color: rgb(9, 9, 131); /* Change the color to blue on hover */
+    transition: 0.5s;
+  }
+
+  /* span{
+    position: relative;
+    right: 25px;
+    transform: translate(0,-50%);
+    cursor: pointer;
+  } */
+  .fa{
+    font-size: 12px;
+    right: 210px;
+    padding: 20px;
+    color: #5d4ba7;
+    position: absolute;
+  }
+  

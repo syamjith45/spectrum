@@ -1,0 +1,43 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Header Styles */
+.navbar {
+    background-color: #3095fa;
+}
+
+.company-logo {
+    width:auto;
+}
+
+/* Sidebar Styles */
+#sidebar {
+    min-height: 100vh;
+}
+
+/* Main Content Styles */
+main {
+    padding: 20px;
+}
+
+/* Product Table Styles */
+table {
+    width: 100%;
+}
+
+th, td {
+    text-align: center;
+}
+
+.btn {
+    margin: 5px;
+}
+
+/* Add more custom styles as needed */
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    /* Adjust styles for smaller screens here */
+}

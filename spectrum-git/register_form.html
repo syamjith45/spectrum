@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="register_style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Rubik:ital@1&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Register</title>
+</head>
+<body>
+    <section class="login py-5 bg-light">
+        <div class="container">
+            <div class="row g-0">
+                <div class="col-lg-6">
+                    <div class="col-lg-6">
+                        <img id="myImage" src="/home/syam/eshopper-1.0.0/3(1).png" class="img-fluid" alt="Your Image Description">
+                    </div>
+                    
+                </div>
+                <div class="col-lg-6 text-center py-6">
+                    <h1 class="animate__animated animate__heartBeat animate__infinite">Register</h1>
+                    <form name="myform" method="post" action="" onsubmit="return validateForm()">
+                        <div class="form-row py-1">
+                            <div class="offset-1 col-lg-10">
+                                <input type="text" class="inp px-3" placeholder="Fullname" name="Fullname" >
+                            </div>
+                        </div>
+                        <div class="form-row py-1">
+                            <div class="offset-1 col-lg-10">
+                                <input type="email" class="inp px-3" placeholder="Email" name="Email" >
+                            </div>
+                        </div>
+                        <div class="form-row py-1">
+                            <div class="offset-1 col-lg-10">
+                                <input type="text" class="inp px-3" placeholder="Username" name="username" >
+                            </div>
+                        </div>
+                        <div class="form-row py-1">
+                            <div class="offset-1 col-lg-10">
+                                <input type="password" class="inp px-3" placeholder="Password" name="password" id="password" >
+                                <!-- <span> -->
+                                    <i class="fa fa-eye" aria-hidden="true" id="eye" onclick="toggle()"></i>
+                                <!-- </span> -->
+                            </div>
+                        </div>
+                        <div class="form-row py-1">
+                            <div class="offset-1 col-lg-10">
+                                <input type="password" class="inp px-3" placeholder="ConfirmPassword" name="confirm_password" id="confirm_password" >
+                                <i class="fa fa-eye" aria-hidden="true" id="eye1" onclick="toggle1()"></i>
+                            </div>
+                        </div>
+                        <div class="form-row py-1">
+                            <div class="offset-1 col-lg-10">
+                                <input type="tel" class="inp px-3" placeholder="PhoneNumber" name="PhoneNumber" >
+                            </div>
+                        </div>
+                        <div class="form-row py-1">
+                            <div class="offset-1 col-lg-10">
+                                <input class="btn1" type="submit" value="Signup">
+                            </div>
+                        </div>
+                        <p class="form-row py-1">
+                          <p class="offset-1 col-lg-10">
+                              <a class="btn2" href="login.html">Already have an account? Login here</a>
+                          </p>
+                        </p>
+                     
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+function validateForm() {
+  var fullname = document.myform.Fullname.value;
+  var email = document.myform.Email.value;
+  var username = document.myform.username.value;
+  var password = document.myform.password.value;
+  var confirm_password = document.myform.confirm_password.value;
+  var phoneNumber = document.myform.PhoneNumber.value;
+
+  var requiredFields = [fullname, email, username, password, confirm_password, phoneNumber];
+
+  // Check if any of the required fields are empty
+  // if (requiredFields.some(field => field === "")) {
+  //   alert("All fields are required.");
+  //   document.myform.Fullname.focus();
+  //   return false;
+  // }
+
+  if (fullname== "") {
+    alert("Full Name required.");
+    document.myform.Fullname.focus();
+    return false;
+  }
+  if (email== "") {
+    alert("Email required.");
+    document.myform.Email.focus();
+    return false;
+  }
+  if (username== "") {
+    alert("Username required.");
+    document.myform.username.focus();
+    return false;
+  }
+
+  // Define regular expressions for email, password, and phone number validation
+  var emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+  var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{7,}$/;
+  var phoneNumberPattern = /^\d{10}$/;
+  var usernamePattern = /^[a-zA-Z0-9_]{6,}$/;
+  
+  if (!email.match(emailPattern)) {
+    alert("Please enter a valid email address.");
+    document.myform.Email.focus();
+    return false;
+  }
+  
+  if (!username.match(usernamePattern)) {
+    alert("Username can only contain letters, numbers, and underscores.");
+    document.myform.username.focus();
+    return false;
+  }
+  
+  if (!passwordPattern.test(password)) { // Use .test() to check the password against the pattern
+    alert("Password must include at least one lowercase letter, one uppercase letter, one digit, one special character (@$!%*?&), and be at least 8 characters long.");
+    document.myform.password.focus();
+    return false;
+  }
+  
+  if (password !== confirm_password) {
+    alert("Passwords do not match.");
+    document.myform.confirm_password.focus();
+    return false;
+  }
+  
+  if (!phoneNumber.match(phoneNumberPattern)) {
+    alert("Please enter a valid 10-digit phone number.");
+    document.myform.PhoneNumber.focus();
+    return false;
+  }
+  
+  return true;
+}
+var state= false;
+    function toggle(){
+      if(state){
+        document.getElementById("password").setAttribute("type","password");
+        document.getElementById("eye").style.color='#7a797e';
+        state = false;
+      }
+      else{
+        document.getElementById("password").setAttribute("type","text");
+        document.getElementById("eye").style.color='#5887ef';
+        state = true;
+      }
+    }
+
+var state1= false;
+    function toggle1(){
+      if(state1){
+        document.getElementById("confirm_password").setAttribute("type","password");
+        document.getElementById("eye1").style.color='#7a797e';
+        state1 = false;
+      }
+      else{
+        document.getElementById("confirm_password").setAttribute("type","text");
+        document.getElementById("eye1").style.color='#5887ef';
+        state1 = true;
+      }
+    }
+    </script>
+</body>
+</html>
