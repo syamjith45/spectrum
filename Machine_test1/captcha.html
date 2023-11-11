@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple CAPTCHA Example</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #captcha {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+        #inputCaptcha {
+            margin-top: 10px;
+            font-size: 16px;
+            padding: 5px;
+        }
+        #result {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple CAPTCHA Example</h1>
+    
+    <div id="captcha"></div>
+    <input type="text" id="inputCaptcha" placeholder="Enter the CAPTCHA">
+    <button onclick="checkCaptcha()">Check CAPTCHA</button>
+    <div id="result"></div>
+
+    <script>
+        // Generate a random CAPTCHA
+        function generateCaptcha() {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let captcha = '';
+            for (let i = 0; i < 6; i++) {
+                captcha += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return captcha;
+        }
+
+        // Display the CAPTCHA on the page
+        function displayCaptcha() {
+            const captchaElement = document.getElementById('captcha');
+            captchaElement.textContent = generateCaptcha();
+        }
+
+        // Check if the entered value matches the CAPTCHA
+        function checkCaptcha() {
+            const inputCaptcha = document.getElementById('inputCaptcha').value;
+            const generatedCaptcha = document.getElementById('captcha').textContent;
+            const resultElement = document.getElementById('result');
+
+            if (inputCaptcha === generatedCaptcha) {
+                resultElement.textContent = 'CAPTCHA is correct!';
+                resultElement.style.color = 'green';
+            } else {
+                resultElement.textContent = 'CAPTCHA is incorrect. Please try again.';
+                resultElement.style.color = 'red';
+                // Regenerate a new CAPTCHA for a failed attempt
+                displayCaptcha();
+            }
+        }
+
+        // Initial setup
+        displayCaptcha();
+    </script>
+</body>
+</html>
