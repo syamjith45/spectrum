@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        #loginForm {
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        input {
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+
+        #error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Login Page</h2>
+
+    <div id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" required>
+        <br>
+        <button onclick="attemptLogin()">Login</button>
+        <p id="error"></p>
+    </div>
+
+    <script>
+        let loginAttempts = 0;
+        let lastLoginTime;
+
+        function attemptLogin() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Perform your authentication logic here
+            // For simplicity, let's assume the correct username is "user" and password is "password"
+            if (username === "user" && password === "password") {
+                alert("Login successful!");
+            } else {
+                handleFailedLogin();
+            }
+        }
+
+        function handleFailedLogin() {
+            loginAttempts++;
+
+            if (loginAttempts >= 3) {
+                // Lock the user out for 30 minutes
+                lastLoginTime = new Date().getTime();
+                document.getElementById("error").textContent = "Too many unsuccessful login attempts. Please try again later.";
+                document.getElementById("username").disabled = true;
+                document.getElementById("password").disabled = true;
+                document.querySelector("button").disabled = true;
+
+                setTimeout(() => {
+                    resetLoginAttempts();
+                }, 30 * 60 * 1000); // 30 minutes in milliseconds
+            } else {
+                document.getElementById("error").textContent = "Invalid username or password. Attempts left: " + (3 - loginAttempts);
+            }
+        }
+
+        function resetLoginAttempts() {
+            loginAttempts = 0;
+            lastLoginTime = null;
+            document.getElementById("error").textContent = "";
+            document.getElementById("username").disabled = false;
+            document.getElementById("password").disabled = false;
+            document.querySelector("button").disabled = false;
+        }
+    </script>
+
+</body>
+</html>

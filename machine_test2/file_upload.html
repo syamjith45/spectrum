@@ -1,0 +1,21 @@
+<!-- Create a HTML page for Input FileUpload files Property -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload Example</title>
+</head>
+<body>
+
+    <h2>File Upload Example</h2>
+
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="fileInput">Select a file to upload:</label>
+        <input type="file" id="fileInput" name="fileInput" accept=".jpg, .jpeg, .png" required>
+        <br>
+        <input type="submit" value="Upload">
+    </form>
+
+</body>
+</html>

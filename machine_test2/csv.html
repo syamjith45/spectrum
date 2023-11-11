@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Export to CSV</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        #exportBtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Export HTML Table to CSV</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John Doe</td>
+                <td>john@example.com</td>
+                <td>(123) 456-7890</td>
+            </tr>
+            <tr>
+                <td>Jane Doe</td>
+                <td>jane@example.com</td>
+                <td>(987) 654-3210</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button id="exportBtn" onclick="exportToCSV()">Export to CSV</button>
+
+    <script>
+        function exportToCSV() {
+            const table = document.querySelector("table");
+            const rows = table.querySelectorAll("tbody tr");
+
+            let csvContent = "data:text/csv;charset=utf-8,";
+
+            rows.forEach(row => {
+                const rowData = Array.from(row.children).map(cell => cell.textContent);
+                csvContent += rowData.join(",") + "\n";
+            });
+
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "exported_data.csv");
+            document.body.appendChild(link);
+            link.click();
+        }
+    </script>
+
+</body>
+</html>
