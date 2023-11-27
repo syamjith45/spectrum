@@ -1,0 +1,205 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Your Name - Resume</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <!-- Your Custom CSS -->
+    <link rel="stylesheet" href="your_custom_styles.css">
+    
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">Resume</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'portfolio' %}">Portfolio</a></li>
+                <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section bg-primary text-white text-center py-5">
+    <div class="container">
+        <h1 class="display-4">SYAMJITH</h1>
+        <p class="lead">PYTHON DEVELOPER</p>
+        <a href="#" class="btn btn-light">Download CV</a>
+    </div>
+</section>
+<br><br>
+<!-- About Section -->
+<!-- About Section -->
+<section id="about" class="about-mf sect-pt4 route">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="box-shadow-full">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-sm-6 col-md-5">
+                                    <div class="about-img">
+                                        <img src="{% static 'image/IMG_3548-01-01.jpeg' %}" class="img-fluid rounded-circle b-shadow-a" alt="">
+                                    </div>
+                                </div>
+                                <div class="about-info mt-3">
+                                    <p><span class="title-s">Profile: </span> <span>Junior Full Stack Developer</span></p>
+                                    <p><span class="title-s">Email: </span> <span>contact@example.com</span></p>
+                                    <p><span class="title-s">Phone: </span> <span>(617) 557-0089</span></p>
+                                    <!-- Add LinkedIn and GitHub icons with links -->
+                                    <p>
+                                        
+                                        <span><a href="https://www.linkedin.com/in/syam-jith-s-0603" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn Profile</a></span>
+                                    </p>
+                                    <p>
+                                        
+                                        <span><a href="https://github.com/syamjith45" target="_blank"><i class="fab fa-github"></i> GitHub Profile</a></span>
+                                    </p>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="about-me pt-4 pt-md-0">
+                                <div class="title-box-2">
+                                    <h5 class="title-left">
+                                        About me
+                                    </h5>
+                                </div>
+                                <p>
+                                    Experienced and detail-oriented Python developer with a passion for writing clean, efficient, and maintainable code.
+                                    Proficient in designing and implementing software solutions, leveraging expertise in Python and related frameworks. Adept at collaborating with cross-functional teams to drive project success. Excited about staying current with emerging technologies and contributing to a dynamic development environment.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="bg-light py-5">
+    <div class="container">
+        <h2 class="mb-4 text-center">Skills</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Python Programming</h5>
+                        <p class="card-text">Experience with Python for web development, data analysis, and automation.</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Web Development</h5>
+                        <p class="card-text">Proficient in web development using Django.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Database Management</h5>
+                        <p class="card-text">
+                            Skilled in relational databases, particularly MySql.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Add more skill cards as needed -->
+        </div>
+        
+</section>
+
+<!-- Experience Section -->
+<section id="experience" class="py-5">
+    <div class="container">
+        <h2 class="mb-4 text-center">Work Experience</h2>
+        <div class="timeline">
+            <!-- Experience Timeline -->
+        
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h2 class="timeline-title">Junior Python Developer</h2>
+                    <p class="text-muted">Spectrum SoftTech.</p>
+                    <p class="text-muted mb-2">september, 2023 - Present</p>
+                    <p>
+                        As a Junior Python Developer at SpectrumSofttech Ltd., I am involved in developing and maintaining web applications using Python and Django. Responsibilities include working on front-end and back-end development, collaborating with the team on project planning, and contributing to the optimization of codebase and performance.
+                    </p>
+                    <p>
+                        Key Achievements:
+                        <ul>
+                            <li>Collaborated in the development of a customer portal, improving user experience and engagement.</li>
+                            <li>Assisted in debugging and resolving issues, ensuring smooth functioning of applications.</li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+            
+        
+    </div>
+</section>
+
+<!-- Education Section -->
+<section id="education" class="bg-light py-5">
+    <div class="container">
+        <h2 class="mb-4 text-center">Education</h2>
+        <div class="timeline">
+            <!-- Add your education timeline here -->
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-5">
+    <div class="container">
+        <h2 class="mb-4 text-center">Contact</h2>
+        <div class="row">
+            <!-- Add your contact form here -->
+        </div>
+    </div>
+</section>
+
+<!-- Footer Section -->
+<footer class="bg-dark text-white text-center py-3">
+    <div class="container">
+        <p>&copy; 2023 Your Name. All rights reserved. | Design by <a href="https://yourwebsite.com" class="text-white">Your Website</a></p>
+    </div>
+</footer>
+
+<!-- Bootstrap JS Bundle (Popper included) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Your Custom JS -->
+<script src="your_custom_script.js"></script>
+
+</body>
+</html>
